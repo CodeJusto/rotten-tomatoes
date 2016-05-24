@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # file uploader
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

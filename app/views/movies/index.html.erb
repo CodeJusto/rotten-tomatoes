@@ -2,7 +2,7 @@
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
 <% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.image, height: "350"), movie_path(movie) %>
+  <%= link_to image_tag(movie.image(, height: "350")), movie_path(movie) %>
   <h2><%= link_to movie.title, movie_path(movie) %>
   <h3><%= movie.release_date %></h3>
   <h4>Average review: <%= movie.review_average %>/10</h4>
