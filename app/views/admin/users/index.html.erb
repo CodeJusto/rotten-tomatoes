@@ -1,5 +1,8 @@
 <h1>Admin Dashboard</h1>
 
+<%= paginate @users %>
+
 <% @users.each do |u| %>
-  <p><%= u.full_name %></p>
-  <% end %>
+<p><%= u.full_name %></p>
+<% end %>
+
