@@ -38,8 +38,13 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to admin_users_path
+    unless @user == current_user
+      UserMailer.delete_email(@user).deliver_later
+      @user.destroy
+      redirect_to admin_users_path, notice: "User was successfully wiped out."
+    else
+      redirect_to admin_users_path, notice: "You cannot delete yourself!"
+    end
   end
 
   protected
