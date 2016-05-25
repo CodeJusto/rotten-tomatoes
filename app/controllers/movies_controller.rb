@@ -5,16 +5,16 @@ class MoviesController < ApplicationController
   
     @movies = Movie.all
 
-    if (params[:title].present?) 
-      @movies = @movies.title(params[:title])
+    if (params[:search].present?) 
+      @movies = @movies.search(params[:search])
     end
 
-    if (params[:director].present?) 
-      @movies = @movies.director(params[:director])
-    end
+    # if (params[:director].present?) 
+    #   @movies = @movies.director(params[:director])
+    # end
 
     if (params[:duration].present?) 
-      @movies = @movies.search(params[:duration])
+      @movies = @movies.movie_duration(params[:duration])
     end
 
   end

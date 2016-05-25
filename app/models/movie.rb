@@ -7,8 +7,10 @@ class Movie < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  scope :title, ->(title) { where("title LIKE ?", "%#{title}%") }
-  scope :director, ->(director) { where('director LIKE ?', "%#{direcor}%") }
+  scope :search, ->(search) { where("title LIKE ? OR director LIKE ?", "%#{search}%",  "%#{search}%") }
+  
+  # scope :title, ->(title) { where("title LIKE ?", "%#{title}%") }
+  # scope :director, ->(director) { where('director LIKE ?', "%#{direcor}%") }
   
   def review_average
     if reviews.count > 0
@@ -18,7 +20,7 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  def self.search(duration)
+  def self.movie_duration(duration)
     if duration == "90"
       where('runtime_in_minutes < ?', duration)
     elsif duration == "120"
