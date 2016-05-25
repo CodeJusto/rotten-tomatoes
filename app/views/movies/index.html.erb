@@ -7,7 +7,7 @@
     Director: 
     <%= text_field_tag :director, params[:director] %>
     <br>
-    <%= select_tag "duration", options_for_select([['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]) %>
+    <%= select_tag :duration, options_for_select([['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]) %>
     <%= submit_tag "Search", name: nil %>
   </p>
 <% end %>
@@ -16,7 +16,7 @@
   <%= link_to image_tag(movie.image, height: "350"), movie_path(movie) %>
   <h2><%= link_to movie.title, movie_path(movie) %>
   <h3><%= movie.release_date %></h3>
-  <h4>Average review: <%= movie.review_average %>/10</h4>
+  <h4>Average review: <%= movie.review_average %></h4>
   <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
   <p><%= movie.description %></p>
 
