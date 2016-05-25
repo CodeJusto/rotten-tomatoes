@@ -1,0 +1,11 @@
+<h3>
+  <%= review.joins(:movies).where("movies.id" => review.movie_id %>
+</h3>
+
+<p>
+  <%= review.text %>
+</p>
+<p>
+  <%= review.rating_out_of_ten %>/10
+</p>
+<br>

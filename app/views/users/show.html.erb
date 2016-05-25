@@ -6,7 +6,18 @@
 
 <p>Reviews:</p>
 <% @user.reviews.each do |review| %>
-  <% render 'user_reviews' %>
+  <h3>
+    <%= link_to review.movie.title, movie_path(review.movie.id) %>
+  </h3>
+
+  <p>
+    <%= review.text %>
+  </p>
+  <p>
+    <%= review.rating_out_of_ten %>/10
+  </p>
+  <br>
+
 <% end %>
 
-<p><%=link_to "Go back", admin_users_path %></p>
+<p><%=link_to "Go back", movies_path %></p>
