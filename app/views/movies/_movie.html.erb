@@ -1,0 +1,10 @@
+
+  <%= link_to image_tag(movie.image, height: "350"), movie_path(movie) %>
+  <h2><%= link_to movie.title, movie_path(movie) %>
+  <h3><%= movie.release_date %></h3>
+  <h4>Average review: <%= movie.review_average %></h4>
+  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+  <p><%= movie.description %></p>
+
+  <hr>
+
