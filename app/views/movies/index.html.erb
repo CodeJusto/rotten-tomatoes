@@ -4,9 +4,6 @@
 <%= form_tag movies_path, method: 'get' do %>
   <p>
     Search: <%= text_field_tag :search, params[:search] %><br>
-<!--     Director: 
-    <%= text_field_tag :director, params[:director] %>
-    <br> -->
     <%= select_tag :duration, options_for_select([['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]) %>
     <%= submit_tag "Search", name: nil %>
   </p>
