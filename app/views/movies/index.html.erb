@@ -1,15 +1,7 @@
-<h1><%= link_to "Rotten Mangoes", movies_path %></h1>
-<%= link_to "Submit a movie!", new_movie_path %>
 
-<%= form_tag movies_path, method: 'get' do %>
-  <p>
-    Search: <%= text_field_tag :search, params[:search] %><br>
-    <%= select_tag :duration, options_for_select([['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]) %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
-<hr>
 
-<% @movies.each do |movie| %>
- <%= render 'movie', movie: movie %>
-<% end %>
+<div class="columns is-multiline">
+  <% @movies.each do |movie| %>
+   <%= render 'movie', movie: movie %>
+  <% end %>
+</div>

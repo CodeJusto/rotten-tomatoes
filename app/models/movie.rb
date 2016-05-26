@@ -27,6 +27,8 @@ class Movie < ActiveRecord::Base
       where('runtime_in_minutes > ?', duration)
     elsif duration == "between 90 and 120"
       where('runtime_in_minutes > 90')
+    else
+      all
     end
   end
 

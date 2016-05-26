@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image-resize {
-  width: 640px;
-  height: 480px;
+
+.test-class {
+  font-size: 33px;
+}
+
+.image-spacer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-spacer {
+  margin: 5px;
 }

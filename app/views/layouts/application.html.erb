@@ -2,16 +2,70 @@
 <html>
 <head>
   <title>RottenMango</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value) %>
-  <% end %>
-<%= yield %>
+  <div class="nav">
+    <div class="container">
+      <div class="nav-left">
+        <div class="nav-item">
+          <p class="title is-3"><%= link_to "Rotten Mangoes", movies_path %><br>
+           <%= link_to "Submit a movie!", new_movie_path, class: "subtitle is-6" %></p>
+        </div>
+        <div class="nav-item">
+         
+        </div>
+      </div>
+      <div class="nav-center">
+        <figure class="image is-128x128">
+          <img src="http://png.clipart.me/graphics/thumbs/144/mango-fruit-and-leaf-isolated-on-white-background_144236050.jpg">
+        </figure>
+       
+      </div>
+      <div class="nav-right">
+        <div class="nav-item">
+         <%= form_tag movies_path, method: 'get' do %>
+            <p class="controller search-spacer">
+              <%= text_field_tag :search, params[:search], placeholder: "Hit enter to search", class: "input" %>
+            </p>
+            <p class="controller search-spacer">
+              <%= select_tag :duration, options_for_select([['Select a movie length', "all"], ['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]), class: "select" %>
+            </p>
+            </p>
+          <% end %>
+        </div>
+      </div>
+        <div class="nav-item">
+           <p class="">
+            <% if current_user %>
+              Signed in as 
+              <strong>
+                <%= current_user.full_name %>
+              </strong> 
+              (<%= link_to "Log out", session_path("current"), method: :delete %>)<br>
+              <% if current_user.admin? %>
+                <%= link_to "Access admin dashboard", admin_users_path %>
+              <% end %>
+            <% else %>
+              <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="notification">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value) %>
+    <% end %>
+  </div>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
-<%= render 'layouts/footer' %>
 </html>
