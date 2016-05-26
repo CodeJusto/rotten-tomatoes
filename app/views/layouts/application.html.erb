@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RottenMango</title>
+  <title>Rotten Mango</title>
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,6 +11,11 @@
   <div class="nav">
     <div class="container">
       <div class="nav-left">
+        <div>
+          <figure class="image is-64x64">
+            <img src="http://png.clipart.me/graphics/thumbs/144/mango-fruit-and-leaf-isolated-on-white-background_144236050.jpg">
+          </figure>
+        </div>
         <div class="nav-item">
           <p class="title is-3"><%= link_to "Rotten Mangoes", movies_path %><br>
            <%= link_to "Submit a movie!", new_movie_path, class: "subtitle is-6" %></p>
@@ -20,9 +25,6 @@
         </div>
       </div>
       <div class="nav-center">
-        <figure class="image is-128x128">
-          <img src="http://png.clipart.me/graphics/thumbs/144/mango-fruit-and-leaf-isolated-on-white-background_144236050.jpg">
-        </figure>
        
       </div>
       <div class="nav-right">
