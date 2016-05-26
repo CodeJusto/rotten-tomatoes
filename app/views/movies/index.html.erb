@@ -1,7 +1,20 @@
-
+<div class="hero is-large">
+  <div class="hero-body">
+    <div class="container">
+      <div class="image is-square">
+        <%= link_to image_tag(@feature.image), movie_path(@feature) %>
+      <h1 class="title">
+        Large title
+      </h1>
+      <h2 class="subtitle">
+        Large subtitle
+      </h2>
+    </div>
+  </div>
+</div>
 
 <div class="columns is-multiline">
-  <% @movies.each do |movie| %>
+  <% @remaining.each do |movie| %>
    <%= render 'movie', movie: movie %>
   <% end %>
 </div>
