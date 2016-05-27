@@ -16,7 +16,7 @@
         <div class="media">
           <figure class="media-left">
             <div class="image is-128x128">
-              <%= image_tag(review.movie.image) %>
+              <%= link_to image_tag(review.movie.image), movie_path(review.movie_id) %>
             </div>            
           </figure> 
           <%= render 'user_reviews', review: review %>

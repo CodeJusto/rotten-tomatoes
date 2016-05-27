@@ -15,26 +15,10 @@
         <div class="media">
           <figure class="media-left">
             <div class="image is-128x128">
-              <%= image_tag(review.movie.image) %>
+            <%= link_to image_tag(review.movie.image), movie_path(review.movie_id) %>
             </div>            
           </figure> 
-          <div class="tile is-ancestor is-vertical">
-            <div class="tile is-parent">
-              <h3 class="title">
-                <%= link_to review.movie.title, movie_path(review.movie.id) %>
-              </h3>
-            </div>
-            <div class="tile is-parent is-vertical">
-              <p>
-                <strong><%= @user.full_name %></strong> had this to say about <strong><%= review.movie.title %>:</strong><em><br> "<%= review.text %>"</em>
-              </p>
-            </div>
-            <div class="tile is-parent is-vertical">
-              <p>
-                <strong>Review score: </strong><br><%= review.rating_out_of_ten %>/10
-              </p>
-          </div>
-        </div>
+        <%= render 'user_reviews', review: review %>
       </div>
     </div>
     <% end %>

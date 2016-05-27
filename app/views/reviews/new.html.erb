@@ -1,6 +1,8 @@
- <%= link_to "Back to movie", movie_path(@movie) %><br/>
+<div class="container">
+  <div class="columns">
+    <div class="column is-one-half">
+      <p class="title is-4">Write a review for <em><%= @movie.title %></em></p>
 
-<h2>Write a review of <em><%= @movie.title %></em>.</h2>
 
 <%= form_for([@movie, @review]) do |f| %>
   <% if @review.errors.any? %>
@@ -15,12 +17,26 @@
   <% end %>
 
   <div>
-    <%= f.label :text %><br>
-    <%= f.text_area "text" %>
+
+      <%= f.label :text, class: "label" %>
+    <p class="control">
+      <%= f.text_area "text", placeholder: "What did you think about this movie?", class: "input" %>
+    </p>
   </div>
   <div>
-    <%= f.label :rating_out_of_ten %><br>
-    <%= f.number_field :rating_out_of_ten %>
+
+    <%= f.label :rating_out_of_ten, class: "label" %>
+    <p class="control">
+      <%= f.number_field :rating_out_of_ten, class: "input" %>
+    </p>
   </div>
-  <div><%= f.submit "Submit" %></div>
+  <div><%= f.submit "Submit", class: "search-spacer" %></div>
 <% end %>
+</div>
+  <div class="column">
+    <div class="box">
+      <figure class="image is-square">
+        <img src="http://stevencbird.com/wp-content/uploads/2015/02/Reviews.jpg">
+      </figure>
+    </div>
+  </div>

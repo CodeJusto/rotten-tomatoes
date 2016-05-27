@@ -1,6 +1,17 @@
 <div class="container">
-  <h1 class="title is-4">Edit an existing movie</h1>
-  <%= link_to "Back to all movies", movies_path %>
-  <br>
-  <%= render 'form' %>
-</div>
+  <div class="columns">
+    <div class="column is-one-half">
+      <p class="title is-4">Write a review for <em><%= @movie.title %></em></p>
+        <br>
+        <%= render 'form' %>
+    </div>
+
+      <div class="column">
+        <div class="box">
+          <figure class="image is-square">
+            <%= image_tag(@movie.image) %>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>

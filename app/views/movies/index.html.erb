@@ -10,7 +10,7 @@
           </div>
           <div class="content">
           <p class="title">
-            <%= @feature.title %>
+            <%= link_to @feature.title, movie_path(@feature.id) %>
           </p>
           <p class="subtitle">
             Directed by: <%= @feature.director %>
