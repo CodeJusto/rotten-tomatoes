@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  validates :title, :director, :description, :release_date, presence: true
+  validates :title, :director, :description, :release_date, :image, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validate :release_date_in_the_past
 

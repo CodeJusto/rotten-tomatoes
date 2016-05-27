@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.order(created_at: :desc)
     if (params[:search].present?) 
       @movies = @movies.search(params[:search])
     end
@@ -9,8 +9,10 @@ class MoviesController < ApplicationController
       @movies = @movies.movie_duration(params[:duration])
     end
 
-    @feature = @movies.first
-    @remaining = @movies[1..-1]
+    unless @movies.empty?
+      @feature = @movies.first 
+      @remaining = @movies[1..-1] 
+    end
   end
 
   def show

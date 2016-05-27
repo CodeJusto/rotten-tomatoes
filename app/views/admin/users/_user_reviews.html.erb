@@ -1,11 +1,17 @@
-<h3>
-  <%= review.joins(:movies).where("movies.id" => review.movie_id %>
-</h3>
-
-<p>
-  <%= review.text %>
-</p>
-<p>
-  <%= review.rating_out_of_ten %>/10
-</p>
-<br>
+<div class="tile is-ancestor is-vertical">
+  <div class="tile is-parent">
+    <h3 class="title">
+      <%= link_to review.movie.title, movie_path(review.movie.id) %>
+    </h3>
+  </div>
+  <div class="tile is-parent is-vertical">
+    <p>
+      <strong><%= @user.full_name %></strong> had this to say about <strong><%= review.movie.title %>:</strong><em><br> "<%= review.text %>"</em>
+    </p>
+  </div>
+  <div class="tile is-parent is-vertical">
+    <p>
+      <strong>Review score: </strong><br><%= review.rating_out_of_ten %>/10
+    </p>
+</div>
+</div>

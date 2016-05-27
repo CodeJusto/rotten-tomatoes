@@ -1,36 +1,41 @@
-
 <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
-    <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+    <%= f.label :email, class: "label"  %>
+    <p class="controller">
+      <%= f.text_field :email, class: "input search-spacer" %>
+    </p>
   </div>
-<% end %>
-<div>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-</div>
-<div>
-  <%= f.label :firstname, "First Name" %><br>
-  <%= f.text_field :firstname %>
-</div>
-<div>
-  <%= f.label :lastname, "Last Name" %><br>
-  <%= f.text_field :lastname %>
-</div>
-<div>
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-</div>
-<div>
-  <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %>
-</div>
-<div>
-  <%= f.label :admin, "Admin user?" %>
-  <%= f.check_box(:admin) %>
-</div>
-<div><%= f.submit "Submit" %></div>
+  <div>
+    <%= f.label :firstname, "First Name", class: "label"  %>
+    <p class="controller">
+    <%= f.text_field :firstname, class: "input search-spacer" %>
+      </p>
+  </div>
+  <div>
+    <%= f.label :lastname, "Last Name", class: "label"  %>
+    <p class="controller">
+    <%= f.text_field :lastname, class: "input search-spacer" %>
+      </p>
+  </div>
+  <div>
+    <%= f.label :password, class: "label" %>
+    <p class="controller">
+    <%= f.password_field :password, class: "input search-spacer" %>
+      </p>
+  </div>
+  <div>
+    <%= f.label :password_confirmation, class: "label"  %>
+    <p class="controller">
+    <%= f.password_field :password_confirmation, class: "input search-spacer" %>
+      </p>
+  </div>
+  <div><%= f.submit "Submit", class: "button is-primary search-spacer" %></div>
