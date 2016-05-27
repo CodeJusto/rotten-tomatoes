@@ -8,6 +8,7 @@
 <p><%= u.full_name %></p>
 <p><%= link_to "View", admin_user_path(u.id) %> <%= link_to "Edit", edit_admin_user_path(u.id) %>
   <%= link_to "Delete", admin_user_path(u.id), method: :delete %>
+  <%= link_to "Impersonate", admin_user_impersonate_path(u.id), method: :post unless u.admin? %>
 <% end %>
   
 <p><%= link_to "Create new user", new_admin_user_path %></p>
