@@ -1,10 +1,14 @@
 
-  <%= link_to image_tag(movie.image, height: "350"), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %>
-  <h3><%= movie.release_date %></h3>
-  <h4>Average review: <%= movie.review_average %></h4>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-
-  <hr>
-
+  <div class="column is-one-third">
+    <div class="box">
+      <figure class="image is-square image-spacer img-border">
+        <%= link_to image_tag(movie.image), movie_path(movie) %>
+      </figure>
+      <p class="title is-4"><%= link_to movie.title, movie_path(movie) %></p>
+      <p class="subtitle">Directed by <%= movie.director %></p>
+      <p><strong>Release date: </strong><%= formatted_date(movie.release_date) %></p>
+      <p><strong>Average review: </strong> <%= movie.review_average %></p>
+      <p><strong>Runtime: </strong><%= movie.runtime_in_minutes %> minutes</p>
+      <p><strong>Synopsis: </strong></p><%= movie.description %></p>
+    </div>
+  </div>

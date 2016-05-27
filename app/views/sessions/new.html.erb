@@ -1,12 +1,20 @@
- <h1>Log In</h1>
+ <div class="container">
+  <h1 class="title is-4">Log in</h1>
+
     <%= form_tag session_path do %>
       <div>
-        <%= label_tag :email %><br/>
-        <%= text_field_tag :email %>
+        <%= label_tag :email, nil, class: "label" %>
+        <p class="control">
+          <%= text_field_tag :email, nil, class: "input search-spacer" %>
+        </p>
       </div>
       <div>
-        <%= label_tag :password %><br/>
-        <%= password_field_tag :password %>
+        <%= label_tag :password, nil, class: "label" %>
+        <p class="control">
+          <%= password_field_tag :password, nil, class: "input search-spacer" %>
+        </p>
       </div>
-      <div><%= submit_tag "Log In" %></div>
+      <div><%= submit_tag "Submit", class: "button is-primary" %></div>
     <% end %>
+</div>
+

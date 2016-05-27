@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+  
 
   helper_method :current_user
 end

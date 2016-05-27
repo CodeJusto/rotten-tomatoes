@@ -1,12 +1,31 @@
-<h1><%= @user.full_name %>'s Profile</h1>
+<div class="box">
+  <h1 class="title"><%= @user.full_name %>'s Profile</h1>
+</div>
 
-<p>Name: <%= @user.full_name %></p>
-<p>Email: <%= @user.email %></p>
-<p>Date joined: <%=formatted_date(@user.created_at) %></p>
+<div class='box'>
+  <div class="content">
+    <p><strong>Name:</strong> <%= @user.full_name %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Date joined:</strong> <%=formatted_date(@user.created_at) %></p>
+  </div>
+</div>
 
-<p>Reviews:</p>
-<% @user.reviews.each do |review| %>
-  <% render 'user_reviews' %>
-<% end %>
-
-<p><%=link_to "Go back", admin_users_path %></p>
+    <% @user.reviews.each do |review| %>
+      <div class="box">
+        <div class="media">
+          <figure class="media-left">
+            <div class="image is-128x128">
+            <%= link_to image_tag(review.movie.image), movie_path(review.movie_id) %>
+            </div>            
+          </figure> 
+        <%= render 'user_reviews', review: review %>
+      </div>
+    </div>
+    <% end %>
+<div class="columns">
+  <div class="column is-one-quarter">
+    <div class="box is-1">
+      <p class="subtitle is-3 has-text-centered"><%=link_to "Go back", admin_users_path %></p>
+    </div>
+  </div>
+</div>

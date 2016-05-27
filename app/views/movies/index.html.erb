@@ -1,15 +1,37 @@
-<h1><%= link_to "Rotten Mangoes", movies_path %></h1>
-<%= link_to "Submit a movie!", new_movie_path %>
+<div class="columns is-mobile">
+  <div class="column is-two-thirds is-offset-2">
+    <div class="box">
+      <div class="container">
 
-<%= form_tag movies_path, method: 'get' do %>
-  <p>
-    Search: <%= text_field_tag :search, params[:search] %><br>
-    <%= select_tag :duration, options_for_select([['Under 90 minutes', "90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]) %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
-<hr>
+        <% unless @feature.nil? %>
+          <h1 class="title">Featured Movie</h1>
+          <div class="image image-spacer img-border">
+            <%= link_to image_tag(@feature.image), movie_path(@feature), class: "feature-ima" %>
+          </div>
+          <div class="content">
+          <p class="title">
+            <%= link_to @feature.title, movie_path(@feature.id) %>
+          </p>
+          <p class="subtitle">
+            Directed by: <%= @feature.director %>
+          </p>
+          <p><strong>Release date: </strong><%= formatted_date(@feature.release_date) %></p>
+          <p><strong>Average review: </strong> <%= @feature.review_average %></p>
+          <p><strong>Runtime: </strong><%= @feature.runtime_in_minutes %> minutes</p>
+          <p><strong>Synopsis: </p></strong><%= @feature.description %></p>
+          </div>  
+          <% else %>
+            <p class="title">No results </p>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @movies.each do |movie| %>
- <%= render 'movie', movie: movie %>
+<% unless @remaining.nil? %> 
+  <div class="columns is-multiline">
+    <% @remaining.each do |movie| %>
+    <%= render 'movie', movie: movie %>
+    <% end %>
+  </div>
 <% end %>

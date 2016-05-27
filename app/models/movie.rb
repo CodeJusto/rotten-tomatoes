@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  validates :title, :director, :description, :release_date, presence: true
+  validates :title, :director, :description, :release_date, :image, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
   validate :release_date_in_the_past
 
@@ -27,6 +27,8 @@ class Movie < ActiveRecord::Base
       where('runtime_in_minutes > ?', duration)
     elsif duration == "between 90 and 120"
       where('runtime_in_minutes > 90')
+    else
+      all
     end
   end
 
